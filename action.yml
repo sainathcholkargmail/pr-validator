@@ -1,0 +1,20 @@
+name: 'Jira Title Validator'
+description: 'PR title should have a valid Jira Id'
+inputs:
+  gh_token:
+    description: "Github Token"
+    required: true
+  jira_title_regex:
+    description: "Jira Title Regex"
+    required: true
+    default: ^\[(([A-Z][A-Z0-9]+-[0-9]+)|NOJIRA)\]
+  required_labels:
+    description: "Required Github Labels"
+    required: true
+    default: "feature,bug,documentation,chore"
+runs:
+  using: "node16"
+  main: 'dist/index.js'
+branding:
+  icon: "bell"
+  color: "blue"
